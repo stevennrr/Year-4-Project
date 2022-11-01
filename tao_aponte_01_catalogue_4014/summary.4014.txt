@@ -1,0 +1,94 @@
+Summary
+=======
+Catalogue Geometry:  Light-Cone
+Dataset:             MultiDark (Planck) / SAGE
+
+MultiDark (Planck)
+Cosmology: Planck  
+Cosmological parameters: ΩM = 0.307, ΩΛ = 0.693, Ωb = 0.048, σ8 = 0.829, h = 0.678, n = 0.96  
+Box size: 1000 Mpc/h  
+Mass resolution: 1.5 × 10^9 Msun/h  
+Force resolution: 5 kpc/h  
+  
+Paper: [Klypin et al. (2016)](http://adsabs.harvard.edu/abs/2016MNRAS.457.4340K)  
+External link: [CosmoSim](https://www.cosmosim.org/)
+
+SAGE
+The Semi-Analytic Galaxy Evolution (SAGE) model used in this work is a publicly available codebase that runs on the dark
+matter halo trees of a cosmological N-body simulation.  
+Paper: [Croton et al. 2016](http://arxiv.org/abs/1601.04709)  
+External link: [Semi-Analytic Galaxy Evolution](https://github.com/darrencroton/sage)
+
+
+Acknowledgements
+================
+Theoretical Astrophysical Observatory (TAO):
+Data used in this work was generated using Swinburne University's Theoretical Astrophysical Observatory (TAO). TAO is
+part of the Australian All-Sky Virtual Observatory (ASVO) and is freely accessible at {{ siteurl }}.
+
+MultiDark (Planck):  
+The authors gratefully acknowledge the Gauss Centre for Supercomputing e.V. (www.gauss-centre.eu) and the Partnership
+for Advanced Supercomputing in Europe (PRACE, www.prace-ri.eu) for funding the MultiDark simulation project by providing
+computing time on the GCS Supercomputer SuperMUC at Leibniz Supercomputing Centre (LRZ, www.lrz.de). The Bolshoi
+simulations have been performed within the Bolshoi project of the University of California High-Performance
+AstroComputing Center (UC-HiPACC) and were run at the NASA Ames Research Center.
+
+SAGE:
+The Semi-Analytic Galaxy Evolution (SAGE) model used in this work is a publicly available codebase that runs on the dark
+matter halo trees of a cosmological N-body simulation. It is available for download at
+https://github.com/darrencroton/sage.
+
+
+Details
+========
+Dimensions: 0.0° < RA < 0.5°, 0.0° < Dec <  0.5°
+Redshift: 0.0 ≤ z ≤ 3.0
+
+Count: 1 random light cone(s)
+
+Output Properties: 4 properties selected
+
+* Total Stellar Mass in multidark_20190723 (10^10 Msun/h)
+* Black Hole Mass in multidark_20190723 (10^10 Msun/h)
+* Total Star Formation Rate in multidark_20190723 (Msun/year)
+* Redshift (Observed) in multidark_20190723 
+
+
+Spectral Energy Distribution
+============================
+Model: Conroy et al. (2009), Chabrier IMF
+External link: [Flexible Stellar Population Synthesis (FSPS)](https://github.com/cconroy20/fsps)
+* All magnitudes assume the simulation little h value from General Properties
+* Magnitudes are calculated in the AB system
+Additional information is available from the SED Module documentation at
+https://asvo.atlassian.net/wiki/display/TAOC/Spectral+Energy+Distribution+Module.
+
+Bandpass Filters: 6 filters selected
+
+* Keck/DEIMOS/DEEP B (Absolute)
+* Keck/DEIMOS/DEEP B (Apparent)
+* Keck/DEIMOS/DEEP R (Absolute)
+* Keck/DEIMOS/DEEP R (Apparent)
+* Keck/DEIMOS/DEEP I (Absolute)
+* Keck/DEIMOS/DEEP I (Apparent)
+
+Dust: Slab dust model
+In this model, we assume that stars and dust are homogeneously distributed in an infinite plane-parallel slab with the
+same vertical scale. The transmission factor is a function of the internal face-on dust opacity which depends mainly on
+the cold gas column density and metallicity of the galaxy (see e.g. Devriendt et al. 1999 for more details).  
+  
+External link: [Devriendt et al. 1999](https://arxiv.org/abs/astro-ph/9906332)
+Igm: None
+
+
+
+Selection
+=========
+0.01 ≤ Total Stellar Mass (10^10 Msun/h)
+
+
+Output
+======
+CSV
+
+

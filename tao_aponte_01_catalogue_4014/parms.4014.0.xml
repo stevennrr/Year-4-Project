@@ -1,0 +1,100 @@
+<?xml version="1.0" ?>
+<tao timestamp="2022-11-01T15:41:52+00:00" xmlns="http://tao.asvo.org.au/schema/module-parameters-v1">
+	<username>aponte_01</username>
+	<inputfile>/fred/oz114/kdtao/bigdata/tao-multidark-manodeep-redoing-sed-kdtree.h5</inputfile>
+	<workflow>
+		<light-cone id="lightcone">
+			<module-version>1</module-version>
+			<geometry>light-cone</geometry>
+			<simulation>MultiDark (Planck)</simulation>
+			<simulation-type>Semi-analytic</simulation-type>
+			<galaxy-model>SAGE</galaxy-model>
+			<version>2019-07-23</version>
+			<box-repetition>random</box-repetition>
+			<num-cones>1</num-cones>
+			<redshift-min>0</redshift-min>
+			<redshift-max>3</redshift-max>
+			<ra-min units="deg">0</ra-min>
+			<ra-max units="deg">0.5</ra-max>
+			<dec-min units="deg">0</dec-min>
+			<dec-max units="deg">0.5</dec-max>
+			<rng-seeds>
+				<rng-seed-0>76903324</rng-seed-0>
+			</rng-seeds>
+			<output-fields>
+				<item description="Total stellar mass of galaxy" label="Total Stellar Mass" units="10^10 Msun/h">StellarMass</item>
+				<item description="Mass of the black hole" label="Black Hole Mass" units="10^10 Msun/h">BlackHoleMass</item>
+				<item description="Total star formation rate, (includes both disk and bulge components)" label="Total Star Formation Rate" units="Msun/year">TotSfr</item>
+				<item description="Redshift (Observed) = Redshift (Cosmological) + Peculiar Velocity" label="Redshift (Observed)" units="">redshift_observed</item>
+			</output-fields>
+		</light-cone>
+		<sed id="sed">
+			<module-version>1</module-version>
+			<parents>
+				<item>lightcone</item>
+			</parents>
+			<single-stellar-population-model>conroy/ssp_chabrier_no_mass_norm.dat</single-stellar-population-model>
+			<wavelengths-file>conroy/wavelengths.dat</wavelengths-file>
+			<ages-file>conroy/ages.dat</ages-file>
+			<metallicities-file>conroy/metallicities.dat</metallicities-file>
+		</sed>
+		<filter id="filter">
+			<module-version>1</module-version>
+			<parents>
+				<item>dust</item>
+			</parents>
+			<bandpass-filters>
+				<item description="Keck/DEIMOS/DEEP, B band
+&lt;p&gt;Additional Details: &lt;a target=&quot;_blank&quot; href=&quot;../static/docs/bpfilters/DEEP_deep_B.dati.html&quot;&gt;Keck/DEIMOS/DEEP B&lt;/a&gt;.&lt;/p&gt;" label="Keck/DEIMOS/DEEP B" selected="absolute,apparent">DEEP/deep_B.dati</item>
+				<item description="Keck/DEIMOS/DEEP, R band
+&lt;p&gt;Additional Details: &lt;a target=&quot;_blank&quot; href=&quot;../static/docs/bpfilters/DEEP_deep_R.dati.html&quot;&gt;Keck/DEIMOS/DEEP R&lt;/a&gt;.&lt;/p&gt;" label="Keck/DEIMOS/DEEP R" selected="absolute,apparent">DEEP/deep_R.dati</item>
+				<item description="Keck/DEIMOS/DEEP, I band
+&lt;p&gt;Additional Details: &lt;a target=&quot;_blank&quot; href=&quot;../static/docs/bpfilters/DEEP_deep_I.dati.html&quot;&gt;Keck/DEIMOS/DEEP I&lt;/a&gt;.&lt;/p&gt;" label="Keck/DEIMOS/DEEP I" selected="absolute,apparent">DEEP/deep_I.dati</item>
+			</bandpass-filters>
+		</filter>
+		<dust id="dust">
+			<module-version>1</module-version>
+			<parents>
+				<item>sed</item>
+			</parents>
+			<model>Slab</model>
+		</dust>
+		<record-filter>
+			<module-version>1</module-version>
+			<parents>
+				<item>filter</item>
+			</parents>
+			<filter>
+				<filter-attribute>StellarMass</filter-attribute>
+				<filter-min>0.01</filter-min>
+				<filter-max/>
+			</filter>
+		</record-filter>
+		<hdf5 id="hdf5">
+			<module-version>1</module-version>
+			<parents>
+				<item>filter</item>
+			</parents>
+			<fields>
+				<item label="Total Stellar Mass">StellarMass</item>
+				<item label="Black Hole Mass">BlackHoleMass</item>
+				<item label="Total Star Formation Rate">TotSfr</item>
+				<item label="Redshift (Observed)">redshift_observed</item>
+				<item label="Keck/DEIMOS/DEEP B (Absolute)">DEEP/deep_B.dati_absolute</item>
+				<item label="Keck/DEIMOS/DEEP B (Apparent)">DEEP/deep_B.dati_apparent</item>
+				<item label="Keck/DEIMOS/DEEP R (Absolute)">DEEP/deep_R.dati_absolute</item>
+				<item label="Keck/DEIMOS/DEEP R (Apparent)">DEEP/deep_R.dati_apparent</item>
+				<item label="Keck/DEIMOS/DEEP I (Absolute)">DEEP/deep_I.dati_absolute</item>
+				<item label="Keck/DEIMOS/DEEP I (Apparent)">DEEP/deep_I.dati_apparent</item>
+			</fields>
+			<filename>tao.4014.0.hdf5</filename>
+		</hdf5>
+	</workflow>
+
+  <aliasX>X</aliasX><aliasY>Y</aliasY><aliasZ>Z</aliasZ><aliasCOLOUR></aliasCOLOUR>
+  <outputdir>output/0</outputdir>
+  <logdir>log</logdir>
+  <bandpassdatapath>/fred/oz114/kdtao/config/bandpass_filters/</bandpassdatapath>
+  <subjobindex>0</subjobindex>
+  <taodir>/fred/oz114/kdtao</taodir>
+</tao>

@@ -13,5 +13,5 @@
 (Week 8,9,10,11 - Millennium)SN and TDE Rates and (Week 8,9,10,11 - GiggleZ)SN and TDE Rates 
 -> Our algorithm to produce our rate plots for the Millennium and GiggleZ simulation
 
-(Week 11 - Prelim)
+(Week 11 - For Prelim)Code for MIL GIG
 -> Graphs used in our prelim report
